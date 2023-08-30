@@ -1,0 +1,166 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title -->
+    <title>{% block title %}{% endblock title %} Elora | Personal Portfolio</title>
+     <!-- Font-Awesome CSS -->
+     <link rel="stylesheet" href="/static/assets/vendors/font-awesome/css/all.min.css" />
+
+     <!-- Swiper CSS -->
+     <link rel="stylesheet" href="/static/assets/vendors/swiper/swiper.css" />
+ 
+     <!-- Magnific-Popup CSS -->
+     <link rel="stylesheet" href="/static/assets/vendors/magnific-popup/magnific-popup.css" />
+ 
+     <!-- Custom Stylesheets -->
+     <link rel="stylesheet"  href="/static/assets/css/main.css" />
+     <link rel="stylesheet" href="/static/assets/css/responsive.css" />
+     <style>
+      {% for n in skills %}
+.skill-item.item1 .box:nth-child({{n.percent}}) .progress-bar span{
+            width:{{n.width_percent}};
+        }
+             
+     {% endfor %}      
+        
+
+
+     {% for n in Skills %}
+.skill-item.item2 .box:nth-child({{n.percent}}) .progress-bar span{
+            width:{{n.width_percent}};
+        }
+             
+     {% endfor %} 
+        </style>
+ 
+ </head>
+<body>
+
+  
+
+    <!-------------------- Scroll-Top Area (Start) -------------------->
+    <a href="#home" class="scroll-top">
+      <i class="fas fa-angle-up"></i>
+  </a>
+  <!-------------------- Scroll-Top Area (End) -------------------->
+
+      
+
+  <!-------------------- Header Area (Start) -------------------->
+  <header class="header">
+
+      <!-- Logo -->
+      <a class="logo" href="#home">
+          <h2> Elora </h2> 
+          <!-- <img src="assets/images/logo.png" alt="logo" /> -->
+      </a>
+      <!-- Logo End -->
+
+      <!-- Navbar -->
+      <nav class="navbar">
+          <a href="#home">home</a>
+          <a href="#about">about</a>
+          <a href="#service">service</a>
+          <a href="#portfolio">portfolio</a>
+          <a href="#testimonial">testimonials</a>
+          <a href="#blog">blogs</a>
+          <a href="#contact">contact</a>
+      </nav>
+
+      <!-- Menubar -->
+      <div class="fas fa-bars" id="menu-btn"></div>
+      
+  </header>
+  <!-------------------- Header Area (End) -------------------->
+
+
+
+
+{% block body %} {% endblock body %}
+
+
+
+
+  <!-------------------- Footer Area (Start) -------------------->
+  <footer>
+    <div class="social">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-linkedin-in"></a>
+    </div>
+
+    <div class="content">
+        <p>created by <span>AS_Designs</span> | all rights reserved</p>
+    </div>
+</footer>
+<!-------------------- Footer Area (End) -------------------->
+
+
+
+{% block footer %}{% endblock footer %}	
+
+  <!-- JQuery -->
+  <script src="/static/assets/vendors/jquery/jquery-3.6.0.js"></script>
+
+  <!-- SWIPER JS -->
+  <script src="/static/assets/vendors/swiper/swiper.js"></script>
+
+  <!-- Magnific-Popup JS -->
+  <script src="/static/assets/vendors/magnific-popup/jquery.magnific-popup.js"></script>
+
+  <!-- Typed JS -->
+  <script src="/static/assets/vendors/typed/typed.js"></script>
+
+  <!-- Custom Script File -->
+  <script src="/static/assets/js/script.js"></script>
+  <script src="/static/assets/js/scroll-spy.js"></script>
+  <script src="/static/assets/js/counter-up.js"></script>
+  <script src="/static/assets/js/portfolio.js"></script>
+  <script src="/static/assets/js/testi-slider.js"></script>
+  <script src="/static/assets/js/blog-slider.js"></script>
+
+  <!---------------- Custom Script ---------------->
+
+  <!-- Typed Script -->
+  <script>
+      var typed = new Typed('.typing-text', {
+        strings: ['Web developer', 'web designer', 'photographer', 'graphic designer'],
+
+          // strings: ['Web developer', 'web designer', 'photographer', 'graphic designer'],
+          typeSpeed: 120,
+          loop: true
+      }); 
+  </script>
+
+  <!-- Contact-Form Script -->
+  <script>
+      jQuery('#contactUs-Form').on('submit',function(e){
+        jQuery('#msg').html('');
+        jQuery('#submit').html('Please wait');
+        jQuery('#submit').attr('disabled',true);
+        jQuery.ajax({
+            url:'assets/php/submit.php',
+            type:'post',
+            data:jQuery('#contactUs-Form').serialize(),
+            success:function(result){
+                jQuery('#msg').html(result);
+                jQuery('#submit').html('Submit');
+                jQuery('#submit').attr('disabled',false);
+                jQuery('#contactUs-Form')[0].reset();
+            }
+        });
+        e.preventDefault();
+      });
+  </script>
+
+</body>
+</html>

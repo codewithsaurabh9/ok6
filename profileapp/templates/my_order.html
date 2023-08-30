@@ -1,0 +1,186 @@
+{% extends 'base.html' %}
+
+
+{% block title %} index{% endblock title %}
+{% block body %}
+{% comment 'comment_name' %}
+{% for i in orders %}
+
+{{i.first_name}}
+<!-- {{i.image}} -->
+<h1>d</h1>
+<img src="{{i.image}}" alt="product_Images/order_Img">
+
+
+{% endfor %}
+
+
+<h1>ww</h1>
+{% for i in orderss %}
+<h1>dd</h1>
+{{i.first_name}}
+{% if i.status == 'Pending'%}
+<td> <span class="label label-info" style="font-size: 12px; border-radius: 30px;">{{i.status}}</span></td>
+{% elif i.status == 'Delivered' %}
+<td> <span class="label label-success" style="font-size: 12px; border-radius: 30px;">{{i.status}}</span></td>
+{% elif i.status == 'Out for Delivery' %}
+<td> <span class="label label-default" style="font-size: 12px; border-radius: 30px;">{{i.status}}</span></td>
+{%else%}
+  <td> <span class="label label-primary" style="font-size: 12px; border-radius: 30px;">{{i.status}}</span></td>
+{%endif%}
+
+{% endfor %}
+
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Responsive Order Table</title>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic'><link rel="stylesheet" href="./style.css">
+<style>
+  body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* a {
+  color: #28acd7;
+  text-decoration: none;
+} */
+
+.my_account_orders {
+  border-collapse: collapse;
+  border-spacing: 0;
+  /* max-width: 600px; */
+  width: 100%;
+}
+
+.my_account_orders th {
+  text-align: left;
+}
+
+tr {
+  border-bottom: 1px solid #ccc;
+}
+
+th,
+td {
+  padding: 6px;
+}
+
+@media 
+only screen and (max-width: 600px) {
+  /* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+  
+  /* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+  
+  td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 35%; 
+	}
+  
+  td:last-child { 
+		 border-width: 0;
+	}
+  
+  td:before { 
+     content: attr(data-title);
+     color: #ccc;
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+	}
+}
+</style>
+</head>
+<body>
+<!-- partial:index.partial.html -->	
+<table class="shop_table my_account_orders">
+
+	<thead>
+		<tr>
+			<th class="order-number">Order</th>
+			<th class="order-date">Date</th>
+			<th class="order-date">product</th>
+
+      <th class="order-status">Status</th>
+			<th class="order-total">Total</th>
+			<th class="order-actions">Img</th>
+      <th class="order-total">Total</th>
+
+      <th class="order-date">Payment</th>
+
+		</tr>
+	</thead>
+
+	<tbody>
+  
+    {% for i in orders %}
+   
+		<tr class="order">
+			<td class="order-number" data-title="Order">
+				<a href="#">{{i.id}}</a>
+			</td>
+
+			<td class="order-date" data-title="Date">
+				<time datetime="2014-06-12" title="1402562157">{{i.order.date}}</time>
+			</td>
+
+      <td class="order-date" data-title="Date">
+				<time datetime="2014-06-12" title="1402562157">{{i.product}}</time>
+			</td>
+
+			<td class="order-status" data-title="Status">
+        {{i.order.status}}			</td>
+
+			<td class="order-total" data-title="Total">
+				<span class="amount">{{i.price}}</span> for {{i.quantity}} items
+			</td>
+
+			<td class="order-actions" data-title="Action">
+				<a href="*" class="button1	 view"><img style="height:100px; width:100px ;" src="{{i.image}}" alt="product_Images/order_Img">
+        </a>
+			</td>
+      <td class="order-total" data-title="Total">
+        <span class="amount">{{i.order.amount}}</span> 	</td>
+        <td class="order-total" data-title="Total">
+          {% if i.order.paid == True %}
+
+          <span class="amount">success</span> 	</td>
+          {% else %}
+          <span class="amount">Pending</span> 	</td>
+          {% endif %}
+
+      
+		</tr>
+   
+
+		
+  {% endfor %}
+
+	
+	</tbody>
+</table>
+<!-- partial -->
+  
+</body>
+{% endblock body %}
+    {% block footer %}{% endblock footer %}	
+</html>
