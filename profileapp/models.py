@@ -6,7 +6,7 @@ from django.db import models
 # photo, 
 
 class first_display(models.Model):
-    firstimage = models.ImageField(upload_to="profile")
+    firstimage = models.ImageField(upload_to="profile" ,blank=True)
     displayname = models.CharField(max_length=150)
     name = models.CharField(max_length=150)
 
@@ -15,7 +15,7 @@ class first_display(models.Model):
 
 
 class about(models.Model):
-    aboutphoto = models.ImageField(upload_to="about/profile")
+    aboutphoto = models.ImageField(upload_to="about/profile", blank=True)
     aboutdetail = models.CharField(max_length=150 ,)
     age = models.CharField(max_length=150)
     gender = models.CharField(max_length=150)
