@@ -663,14 +663,15 @@
         </div>
 
         <form method="post" class="contact-form" id="contactUs-Form">
+            {% csrf_token %}
                 
             <input type="text" name="name" class="box" id="name" placeholder="name" required />
             <input type="email" name="email" class="box" id="email" placeholder="email" required />
             <input type="text" name="subject" class="box" id="subject" placeholder="subject" required />
-            <textarea cols="30" rows="10" name="comment" id="comment" class="box" placeholder="message"></textarea>
-            <button type="submit" class="btn" name="submit" id="submit">send message</button>
+            <textarea  name="message" id="comment" class="box" placeholder="message" required></textarea>
+            <button type="submit" class="btn" name="submit" >send message</button>
             
-            <span class="alert" id="msg"></span>
+            <!-- <span class="alert" id="msg"></span> -->
             
         </form>
         

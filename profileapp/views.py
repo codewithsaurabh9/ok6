@@ -9,7 +9,7 @@ import os
 
 
 
-from .models import first_display,about,aboutproject,My_Skills,My_Skills2
+from .models import first_display,about,aboutproject,My_Skills,My_Skills2,Contact_us
 # from .models import about,aboutproject
 # from .models import first_display
 # from .models import first_display
@@ -18,6 +18,14 @@ from .models import first_display,about,aboutproject,My_Skills,My_Skills2
 # Create your views here.
 
 def index(request):
+    if request.method =="POST":
+        contact =Contact_us(
+            name = request.POST.get('name'),
+            email = request.POST.get('email'),
+            subject = request.POST.get('subject'),
+            message = request.POST.get('message'),
+                )
+        contact.save()
 
 
     dis = first_display.objects.all()
@@ -30,7 +38,7 @@ def index(request):
 
     # abo = about.objects.all()
     # abo = about.objects.all()
-
+   
     
     auto1 = {
         'dis': dis,

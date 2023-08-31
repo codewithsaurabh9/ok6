@@ -126,7 +126,11 @@ class MyServices(models.Model):
 
                         # Contact Me
 
-
+class Contact_us(models.Model):
+    name = models.CharField(max_length=100)
+    email = models.EmailField(max_length=100)
+    subject = models.CharField(max_length=100)
+    message = models.CharField(max_length=100)
 
 
 
