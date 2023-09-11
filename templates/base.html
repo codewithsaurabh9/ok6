@@ -92,10 +92,14 @@
   <!-------------------- Footer Area (Start) -------------------->
   <footer>
     <div class="social">
-        <a href="#" class="fab fa-facebook-f"></a>
-        <a href="#" class="fab fa-twitter"></a>
+        {% for soc in Social_media %}
+        <a href="{{soc.social_media_link}}" class="{{soc.social_icon}}"></a>
+        {% endfor %} 
+        
+        <!-- <a href="#" class="fab fa-twitter"></a>
         <a href="#" class="fab fa-instagram"></a>
-        <a href="#" class="fab fa-linkedin-in"></a>
+        <a href="#" class="fab fa-linkedin-in"></a> -->
+
     </div>
 
     <div class="content">

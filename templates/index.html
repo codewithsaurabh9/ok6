@@ -22,8 +22,10 @@
                 <h1>I Am a <span class="typing-text"></span></h1>
                 <!-- <p>Creative web developer offering 4+ years of experience providing high-impact web solutions for many different organizations.</p> -->
                 <p>{{i.name}}</p>
-                <a href="/foo" class="btn" type="button">resume <i class="fas fa-user"></i></a>
+                {% for ok in okk %}
+                <a href="{{ ok.pdf.url }}" download class="btn" type="button">resume <i class="fas fa-user"></i></a>
                 <!-- <a href ="/foo"> -->
+                    {% endfor %}
 
                     <!-- <input type="button" value ="download"></a> -->
 
@@ -171,77 +173,48 @@
 
     <div class="box-container">
 
+
+
+
+
+
         <div class="education">
+            {% for edu in Education %}
+            <div class="experience-item">
+                <i class="fas fa-graduation-cap"></i>
+                <div class="content">
+                    <span>{{edu.education_date}}</span>
+                    <h3>{{edu.education_name}}</h3>
+                    <p>{{edu.education_detail}}</p>
+                </div>
 
-            <div class="experience-item">
-                <i class="fas fa-graduation-cap"></i>
-                <div class="content">
-                    <span>2015 - 2016</span>
-                    <h3>engineering</h3>
-                    <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
-                        Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores 
-                        Ipsa? Error, Debitis Ullam.</p>
-                </div>
             </div>
+            {% endfor %}
 
-            <div class="experience-item">
-                <i class="fas fa-graduation-cap"></i>
-                <div class="content">
-                    <span>2016 - 2017</span>
-                    <h3>engineering</h3>
-                    <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
-                        Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores 
-                        Ipsa? Error, Debitis Ullam.</p>
-                </div>
-            </div>
-    
-            <div class="experience-item">
-                <i class="fas fa-graduation-cap"></i>
-                <div class="content">
-                    <span>2017 - 2018</span>
-                    <h3>engineering</h3>
-                    <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
-                        Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores 
-                        Ipsa? Error, Debitis Ullam.</p>
-                </div>
-            </div>
+            
 
         </div>
 
+
+
+
+
+
+
         <div class="experience">
 
-            <div class="experience-item">
+            {% for exp in Experience %}
+              <div class="experience-item">
                 <i class="fas fa-briefcase"></i>
                 <div class="content">
-                    <span>2018 - 2019</span>
-                    <h3>front-end development</h3>
-                    <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
-                        Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores 
-                        Ipsa? Error, Debitis Ullam.</p>
+                    <span>{{exp.experience_date}}</span>
+                    <h3>{{exp.experience_name}}</h3>
+                    <p>{{exp.experience_detail}}</p>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="experience-item">
-                <i class="fas fa-briefcase"></i>
-                <div class="content">
-                    <span>2019 - 2020</span>
-                    <h3>front-end development</h3>
-                    <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
-                        Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores 
-                        Ipsa? Error, Debitis Ullam.</p>
-                </div>
-            </div>
-
-            <div class="experience-item">
-                <i class="fas fa-briefcase"></i>
-                <div class="content">
-                    <span>2020 - 2021</span>
-                    <h3>front-end development</h3>
-                    <p>Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. 
-                        Vitae Vel Quasi Consectetur Expedita Ipsam Similique Maiores 
-                        Ipsa? Error, Debitis Ullam.</p>
-                </div>
-            </div>
+         
 
         </div>
 
@@ -261,48 +234,16 @@
 
     <div class="box-container">
 
-        <div class="service-item">
-            <i class="fas fa-code"></i>
-            <h3>web design</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Ex repellendus porro facilis.</p>
-        </div>
+        {% for s in myservices %}
 
         <div class="service-item">
-            <i class="fas fa-paint-brush"></i>
-            <h3>graphic design</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Ex repellendus porro facilis.</p>
+            <i class="{{s.Servicespng}}"></i>
+            <h3>{{s.Services_name}}</h3>
+            <p>{{s.Services_detail}}</p>
         </div>
+        {% endfor %}
 
-        <div class="service-item">
-            <i class="fas fa-camera"></i>
-            <h3>photography</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Ex repellendus porro facilis.</p>
-        </div>
-
-        <div class="service-item">
-            <i class="fas fa-bullhorn"></i>
-            <h3>digital marketing</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Ex repellendus porro facilis.</p>
-        </div>
-
-        <div class="service-item">
-            <i class="far fa-file-video"></i>
-            <h3>video editing</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Ex repellendus porro facilis.</p>
-        </div>
-
-        <div class="service-item">
-            <i class="fas fa-search-dollar"></i>
-            <h3>SEO Marketing</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-                Ex repellendus porro facilis.</p>
-        </div>
-
+    
     </div>
 
 </section>
@@ -317,69 +258,41 @@
         <h2>my <span>portfolio</span></h2>
     </div>
 
-    <div class="gallery">
+    <div class="gallerya">
 
         <ul class="controls">
-            <li class="button btn active" data-filter="all">all</li>
-            <li class="button btn" data-filter="web">web development</li>
-            <li class="button btn" data-filter="design">graphic design</li>
-            <li class="button btn" data-filter="photography">photography</li>
+            <li class="button btn"><a href="/">   all</a></li>
+
+            {% for p in category %}
+            <!-- <a href="/?category={{p.id}}"">   {{p.Services_name}}</a> -->
+            <!-- <li class="button btn active" data-filter="all">all</li> -->
+
+            <li class="button btn"><a href="/?category={{p.id}}"">   {{p.Services_name}}</a></li>
+            <!-- <li class="button btn" data-filter="design">graphic design</li> -->
+            <!-- <li class="button btn" data-filter="photography">photography</li> -->
+      
+      
+            {% endfor %}
         </ul>
 
         <div class="box-container">
+            {% for prod in Products %}
+
 
             <div class="portfolio-item image web">
-                <img src="assets/images/Portfolio/portfolio-1.png" alt="Portfolio-Image" />
+                <img src="{{prod.Portfolio.url}}" alt="{{prod.Portfolio.url}}" />
                 <div class="content">
-                    <h4>web development</h4>
+                    <h4>{{prod.category.Services_name}}</h4>
                     <p>category</p>
-                    <a data-effect="mfp-newspaper" href="assets/images/Portfolio/portfolio-1.png" class="view-btn"><i class="fas fa-search-plus"></i></a>
+                    <a data-effect="mfp-newspaper" href="{{prod.Portfolio.url}}" class="view-btn"><i class="fas fa-search-plus"></i></a>
                 </div>
             </div>
+            {% endfor %}
 
-            <div class="portfolio-item image web">
-                <img src="assets/images/Portfolio/portfolio-2.png" alt="Portfolio-Image" />
-                <div class="content">
-                    <h4>web development</h4>
-                    <p>category</p>
-                    <a data-effect="mfp-newspaper" href="assets/images/Portfolio/portfolio-2.png" class="view-btn"><i class="fas fa-search-plus"></i></a>
-                </div>
-            </div>
 
-            <div class="portfolio-item image design">
-                <img src="assets/images/Portfolio/portfolio-3.png" alt="Portfolio-Image" />
-                <div class="content">
-                    <h4>graphic design</h4>
-                    <p>category</p>
-                    <a data-effect="mfp-newspaper" href="assets/images/Portfolio/portfolio-3.png" class="view-btn"><i class="fas fa-search-plus"></i></a>
-                </div>
-            </div>
+          
 
-            <div class="portfolio-item image design">
-                <img src="assets/images/Portfolio/portfolio-4.png" alt="Portfolio-Image" />
-                <div class="content">
-                    <h4>graphic design</h4>
-                    <p>category</p>
-                    <a data-effect="mfp-newspaper" href="assets/images/Portfolio/portfolio-4.png" class="view-btn"><i class="fas fa-search-plus"></i></a>
-                </div>
-            </div>
-            <div class="portfolio-item image photography">
-                <img src="assets/images/Portfolio/portfolio-5.png" alt="Portfolio-Image" />
-                <div class="content">
-                    <h4>photography</h4>
-                    <p>category</p>
-                    <a data-effect="mfp-newspaper" href="assets/images/Portfolio/portfolio-5.png" class="view-btn"><i class="fas fa-search-plus"></i></a>
-                </div>
-            </div>
-
-            <div class="portfolio-item image photography">
-                <img src="assets/images/Portfolio/portfolio-6.png" alt="Portfolio-Image" />
-                <div class="content">
-                    <h4>photography</h4>
-                    <p>category</p>
-                    <a data-effect="mfp-newspaper" href="assets/images/Portfolio/portfolio-6.png" class="view-btn"><i class="fas fa-search-plus"></i></a>
-                </div>
-            </div>
+      
 
         </div>
 
@@ -616,50 +529,44 @@
     <div class="box-container">
 
         <div class="contact-info">
+            {% for coninf in Contact_info %}
 
-            <h3>get in touch</h3>
+            <!-- Contact_info -->
 
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <h3>{{coninf.GetInTouch}}</h3>
 
-            <div class="info-item">
-                <h4>Phone:</h4>
-                <div class="detail">
-                    <div class="fas fa-phone"></div>
-                    <p>+123-456-789</p>
-                </div>
-                <div class="detail">
-                    <div class="fas fa-phone"></div>
-                    <p>+111-222-333</p>
-                </div>
-            </div>
+            <p>{{coninf.detail}}</p>
+            {% endfor %}
+
+
+
+            {% for contdet in contact_detail %}
 
             <div class="info-item">
-                <h4>email:</h4>
+                <h4>{{contdet.name}}</h4>
                 <div class="detail">
-                    <div class="fas fa-envelope"></div>
-                    <p class="gmail">abc@gmail.com</p>
-                </div>
-                <div class="detail">
-                    <div class="fas fa-envelope"></div>
-                    <p class="gmail">xyz@gmail.com</p>
-                </div>
-            </div>
+                    <div class="{{contdet.Contacticon}}"></div>
+                    <p><a href="{{contdet.Contact_social_mob}}" style="color: var(--grey)">
+                        {{contdet.Contact_social_mob}}</a></p> 
+                    
 
-            <div class="info-item">
-                <h4>linkedin:</h4>
-                <div class="detail">
-                    <div class="fab fa-linkedin"></div>
-                    <p class="linkedin">https://www.linkedin.com/</p>
+                        <!-- <p><a href="{{contdet.Contactiadd}}" style="color: var(--grey)">{{contdet.Contactiadd}}</a></p> -->
                 </div>
-            </div>
+               
 
-            <div class="info-item">
-                <h4>github:</h4>
-                <div class="detail">
-                    <div class="fab fa-github"></div>
-                    <p class="github">https://github.com/</p>
-                </div>
-            </div>
+
+                <!-- <div class="detail">
+                    <div class="{{contdet.Contacticon}}"></div>
+                    <p><a href="{{contdet.Contactiadd}}" style="color: var(--grey)">{{contdet.Contactiadd}}</a></p>
+                </div> -->
+               
+            </div> 
+
+            {% endfor %}
+
+
+
+      
         </div>
 
         <form method="post" class="contact-form" id="contactUs-Form">
